@@ -42,8 +42,8 @@ namespace AspNetCorePrep.Controllers
         // GET: TimeEntries/Create
         public IActionResult Create()
         {
-            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "ApplicationUser");
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "Customer");
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Name");
+            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "Name");
             return View();
         }
 
@@ -58,8 +58,8 @@ namespace AspNetCorePrep.Controllers
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "ApplicationUser", timeEntry.ApplicationUserId);
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "Customer", timeEntry.CustomerId);
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Name", timeEntry.ApplicationUserId);
+            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "Name", timeEntry.CustomerId);
             return View(timeEntry);
         }
 
@@ -76,8 +76,8 @@ namespace AspNetCorePrep.Controllers
             {
                 return HttpNotFound();
             }
-            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "ApplicationUser", timeEntry.ApplicationUserId);
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "Customer", timeEntry.CustomerId);
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Name", timeEntry.ApplicationUserId);
+            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "Name", timeEntry.CustomerId);
             return View(timeEntry);
         }
 
@@ -92,8 +92,8 @@ namespace AspNetCorePrep.Controllers
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "ApplicationUser", timeEntry.ApplicationUserId);
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "Customer", timeEntry.CustomerId);
+            ViewData["ApplicationUserId"] = new SelectList(_context.Users, "Id", "Name", timeEntry.ApplicationUserId);
+            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "Name", timeEntry.CustomerId);
             return View(timeEntry);
         }
 
