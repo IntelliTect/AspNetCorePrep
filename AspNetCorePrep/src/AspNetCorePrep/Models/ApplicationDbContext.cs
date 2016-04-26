@@ -9,6 +9,10 @@ namespace AspNetCorePrep.Models
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<TimeEntry> TimeEntries { get; set; }
+
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
