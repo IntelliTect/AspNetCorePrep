@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using AspNetCorePrep.Models;
 using AspNetCorePrep.Services;
+using Microsoft.AspNet.Identity;
 
 namespace AspNetCorePrep
 {
@@ -98,6 +99,14 @@ namespace AspNetCorePrep
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            app.ApplicationServices.GetService<ApplicationDbContext>().Database.Migrate();
+
+            Seed.Initialize(
+                app.ApplicationServices.GetService<ApplicationDbContext>(),
+                app.ApplicationServices.GetService<UserManager<ApplicationUser>>()
+                ).Wait();
+
         }
 
         // Entry point for the application.
