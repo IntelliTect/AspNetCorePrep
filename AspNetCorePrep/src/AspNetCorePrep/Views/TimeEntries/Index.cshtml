@@ -1,0 +1,38 @@
+@model IEnumerable<AspNetCorePrep.Models.TimeEntry>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hours)
+        </th>
+        <th></th>
+    </tr>
+    
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hours)
+        </td>
+        <td>
+            <a asp-action="Edit" asp-route-id="@item.TimeEntryId">Edit</a> |
+            <a asp-action="Details" asp-route-id="@item.TimeEntryId">Details</a> |
+            <a asp-action="Delete" asp-route-id="@item.TimeEntryId">Delete</a>
+        </td>
+    </tr>
+}
+</table>
