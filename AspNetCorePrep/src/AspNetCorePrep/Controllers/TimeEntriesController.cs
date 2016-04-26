@@ -3,9 +3,11 @@ using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.Mvc.Rendering;
 using Microsoft.Data.Entity;
 using AspNetCorePrep.Models;
+using Microsoft.AspNet.Authorization;
 
 namespace AspNetCorePrep.Controllers
 {
+    [Authorize]
     public class TimeEntriesController : Controller
     {
         private ApplicationDbContext _context;
