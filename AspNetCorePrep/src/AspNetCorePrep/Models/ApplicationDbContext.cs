@@ -4,11 +4,21 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Data.Entity;
+using Microsoft.Data.Entity.Infrastructure;
 
 namespace AspNetCorePrep.Models
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityRole, string>
     {
+
+        public ApplicationDbContext() : base()
+        {
+        }
+
+        public ApplicationDbContext(DbContextOptions options) : base(options)
+        {
+        }
+
         public DbSet<Customer> Customers { get; set; }
         public DbSet<TimeEntry> TimeEntries { get; set; }
 
@@ -20,5 +30,6 @@ namespace AspNetCorePrep.Models
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
         }
+
     }
 }
