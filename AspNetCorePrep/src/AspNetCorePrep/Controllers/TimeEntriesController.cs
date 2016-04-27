@@ -17,6 +17,16 @@ namespace AspNetCorePrep.Controllers
             _context = context;    
         }
 
+        [HttpGet]
+        public decimal TotalHours(string name = null)
+        {
+            if (name != null)
+            {
+                return _context.TimeEntries.Where(f => f.ApplicationUser.Name == name).Sum(f => f.Hours);
+            }
+            return _context.TimeEntries.Sum(f => f.Hours);
+        } 
+
         // GET: TimeEntries
         public IActionResult Index()
         {
