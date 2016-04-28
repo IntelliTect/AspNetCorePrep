@@ -14,7 +14,7 @@ namespace AspNetCorePrep.Controllers
             return View(count);
         }
 
-        public string Concat(int a, string b = " test")
+        public string Concat(int a, string b = "test")
         {
             return $"{a} is {b}";
         }
